@@ -1,0 +1,67 @@
+<div class="email-list-container">
+  <p-toast></p-toast>
+  
+  <p-toolbar styleClass="mb-md">
+    <ng-template pTemplate="left">
+      <div class="toolbar-title">
+        <h1>Your Gmail Messages</h1>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="right">
+      <div class="search-container p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input 
+          type="text" 
+          pInputText 
+          [(ngModel)]="searchTerm" 
+          placeholder="Search emails" 
+          (keyup.enter)="filterEmails()"
+        />
+      </div>
+      <button 
+        pButton 
+        type="button" 
+        icon="pi pi-refresh" 
+        class="ml-sm p-button-outlined" 
+        (click)="refreshEmails()" 
+        [disabled]="loading"
+        pTooltip="Refresh"
+        tooltipPosition="bottom"
+      ></button>
+    </ng-template>
+  </p-toolbar>
+  
+  <!-- Loading state -->
+  <p-card *ngIf="loading" styleClass="mb-md">
+    <!-- Loading skeleton content -->
+  </p-card>
+  
+  <!-- Error message -->
+  <p-card *ngIf="error && !loading" styleClass="error-card mb-md">
+    <!-- Error content -->
+  </p-card>
+  
+  <!-- Email list -->
+  <p-card *ngIf="!loading && !error" styleClass="email-card">
+    <p-table 
+      [value]="emails" 
+      styleClass="p-datatable-sm" 
+      [responsive]="true"
+      [rowHover]="true"
+      [autoLayout]="true" 
+      [scrollable]="true"
+    >
+      <!-- Table headers and body templates -->
+    </p-table>
+    
+    <div class="paginator-container">
+      <p-paginator 
+        [first]="first" 
+        [rows]="rows" 
+        [totalRecords]="totalRecords" 
+        [rowsPerPageOptions]="[10, 25, 50]" 
+        (onPageChange)="onPageChange($event)"
+      ></p-paginator>
+    </div>
+  </p-card>
+</div>

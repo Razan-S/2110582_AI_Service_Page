@@ -1,1 +1,115 @@
-/* You can add global styles to this file, and also import other style files */
+// ============== PrimeNG Theme Imports ==============
+// Modern @use syntax (must come first)
+// @use "@primeng/resources/themes/aura-light" as *;
+// @use "@primeng/resources/primeng" as *;
+// @use "primeflex/primeflex" as *;
+// @use "primeicons/primeicons" as *;
+
+// ============== Custom Variables ==============
+:root {
+  /* Colors */
+  --primary-color: #3f51b5;
+  --primary-color-light: #7986cb;
+  --primary-color-dark: #303f9f;
+  --accent-color: #ff4081;
+  --text-color: #333333;
+  --text-color-light: #666666;
+  --background-color: #f5f5f5;
+  --card-background: #ffffff;
+  --border-color: #e0e0e0;
+  --error-color: #f44336;
+  --success-color: #4caf50;
+  --warning-color: #ff9800;
+  --info-color: #2196f3;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+
+  /* Border radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+
+  /* Box shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+// ============== Base Styles ==============
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.5;
+}
+
+// ============== Utility Classes ==============
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-lg);
+}
+
+// ... rest of your utility classes ...
+
+// ============== Component Styles ==============
+app-root {
+  display: block;
+  min-height: 100vh;
+}
+
+.main-content {
+  padding: var(--spacing-lg) 0;
+}
+
+// Style links consistently
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--primary-color-dark);
+    text-decoration: underline;
+  }
+}
+
+// Override PrimeNG toast z-index to ensure it's always visible
+.p-toast {
+  z-index: 1000;
+}

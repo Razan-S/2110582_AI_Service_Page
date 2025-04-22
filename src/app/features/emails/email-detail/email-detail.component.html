@@ -1,0 +1,61 @@
+<div class="email-detail-container">
+  <div class="header">
+    <button pButton type="button" icon="pi pi-arrow-left" class="p-button-text" (click)="goBack()"></button>
+    <h1>Email Detail</h1>
+  </div>
+  
+  <p-toast></p-toast>
+  
+  <div class="loading-overlay" *ngIf="loading">
+    <p-progressSpinner strokeWidth="4" animationDuration=".5s"></p-progressSpinner>
+    <p>Loading email content...</p>
+  </div>
+  
+  <div class="error-container" *ngIf="error && !loading">
+    <p class="error-message">{{ error }}</p>
+    <button pButton type="button" label="Go Back" (click)="goBack()"></button>
+  </div>
+  
+  <div class="email-content" *ngIf="!loading && !error && email">
+    <p-card>
+      <ng-template pTemplate="header">
+        <div class="email-header">
+          <h2 class="subject">{{ getSubject() }}</h2>
+          <div class="metadata">
+            <div class="metadata-row">
+              <span class="label">From:</span>
+              <span class="value">{{ getSender() }}</span>
+            </div>
+            <div class="metadata-row">
+              <span class="label">To:</span>
+              <span class="value">{{ getRecipient() }}</span>
+            </div>
+            <div class="metadata-row">
+              <span class="label">Date:</span>
+              <span class="value">{{ getDate() }}</span>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      
+      <p-divider></p-divider>
+      
+      <ng-container *ngIf="emailHtml">
+        <div class="email-body-html" [innerHTML]="emailHtml"></div>
+      </ng-container>
+      
+      <ng-container *ngIf="!emailHtml && emailText">
+        <div class="email-body-text">
+          <pre>{{ emailText }}</pre>
+        </div>
+      </ng-container>
+      
+      <ng-container *ngIf="!emailHtml && !emailText">
+        <div class="email-body-empty">
+          <p>No readable content found in this email.</p>
+        </div>
+      </ng-container>
+    </p-card>
+  </div>
+</div>
+

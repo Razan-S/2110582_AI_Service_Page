@@ -1,0 +1,27 @@
+<div class="login-container">
+  <div class="login-card">
+    <h1>Sign in with Google</h1>
+    <p class="subtitle">Access your Gmail messages</p>
+    
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+    
+    <button 
+      class="google-sign-in-btn" 
+      (click)="onSignIn()" 
+      [disabled]="isLoading">
+      <span *ngIf="isLoading">Loading...</span>
+      <span *ngIf="!isLoading">
+        <img src="assets/google-logo.svg" alt="Google" class="google-logo">
+        Sign in with Google
+      </span>
+    </button>
+    
+    <p class="info-text">
+      This app requires permission to access your Gmail account.
+      We only read your emails and do not store any of your data.
+    </p>
+  </div>
+</div>
+

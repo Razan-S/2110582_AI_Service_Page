@@ -1,3 +1,58 @@
-<div class="card flex justify-center">
-    <p-button label="Check"></p-button>
+<div class="home-container">
+  <div class="intro-section">
+    <h1>Gmail Integration Service</h1>
+    <p class="subtitle">Securely access and view your Gmail messages with OAuth authentication</p>
+    
+    <div class="action-buttons">
+      <button pButton type="button" label="View Emails" icon="pi pi-envelope" 
+              (click)="goToEmails()" class="p-button-primary"></button>
+      <button pButton type="button" label="Sign In" icon="pi pi-user" 
+              (click)="goToLogin()" class="p-button-secondary"></button>
+    </div>
+  </div>
+  
+  <div class="feature-section">
+    <h2>Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="pi pi-lock" style="font-size: 2rem; color: #4caf50;"></i>
+        <h3>Secure OAuth 2.0</h3>
+        <p>Authentication with Google using the latest OAuth 2.0 protocols</p>
+      </div>
+      
+      <div class="feature-card">
+        <i class="pi pi-envelope" style="font-size: 2rem; color: #2196f3;"></i>
+        <h3>Gmail Integration</h3>
+        <p>View and read your Gmail messages through the Gmail API</p>
+      </div>
+      
+      <div class="feature-card">
+        <i class="pi pi-shield" style="font-size: 2rem; color: #ff9800;"></i>
+        <h3>Privacy First</h3>
+        <p>Your data stays private - we don't store any email content</p>
+      </div>
+      
+      <div class="feature-card">
+        <i class="pi pi-desktop" style="font-size: 2rem; color: #9c27b0;"></i>
+        <h3>Modern UI</h3>
+        <p>Clean, responsive interface built with Angular and PrimeNG</p>
+      </div>
+    </div>
+  </div>
+  
+  <p-divider></p-divider>
+  
+  <div class="instruction-section">
+    <h2>Getting Started</h2>
+    <ol>
+      <li>Click the <strong>Sign In</strong> button to authenticate with your Google account</li>
+      <li>Grant permission to access your Gmail messages</li>
+      <li>Browse and view your emails securely</li>
+    </ol>
+    <p class="note">
+      <i class="pi pi-info-circle"></i> 
+      This application only requests read-only access to your Gmail messages. 
+      Your credentials are not stored on our servers.
+    </p>
+  </div>
 </div>

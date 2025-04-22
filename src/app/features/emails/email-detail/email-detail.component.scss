@@ -1,0 +1,97 @@
+.email-detail-container {
+  padding: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  
+  h1 {
+    margin: 0 0 0 0.5rem;
+    color: #333;
+  }
+}
+
+.loading-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  
+  p {
+    margin-top: 1rem;
+    color: #666;
+  }
+}
+
+.email-header {
+  padding: 1rem;
+  
+  .subject {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+}
+
+.metadata {
+  margin-bottom: 1rem;
+  
+  .metadata-row {
+    display: flex;
+    margin-bottom: 0.5rem;
+    
+    .label {
+      min-width: 60px;
+      font-weight: 500;
+      color: #666;
+    }
+    
+    .value {
+      flex: 1;
+    }
+  }
+}
+
+.email-body-html {
+  padding: 1rem;
+  word-break: break-word;
+  
+  ::ng-deep img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.email-body-text {
+  padding: 1rem;
+  
+  pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+    margin: 0;
+  }
+}
+
+.email-body-empty {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  
+  .error-message {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+  }
+}
