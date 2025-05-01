@@ -1,5 +1,18 @@
 # 2110582AISERVICE
 
+## For Google Extension
+
+
+```bash
+ng build
+```
+1. Then open chrome and navigate to `chrome://extensions/`
+2. Toggle the developer mode
+3. Click "Load unpacked"
+4. Open folder dist -> 2110582
+5. Upload folder browser
+
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.5.
 
 ## Development server
