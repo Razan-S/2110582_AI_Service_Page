@@ -1,0 +1,46 @@
+<div class="popup-container" *ngIf="result.score == 0 && result.isPhishing == ''">
+  <ng-container *ngIf="isGmailTab; else notGmail">
+    <h3>Check Email for Phishing</h3>
+    <form [formGroup]="phishingForm" (ngSubmit)="submit()" class="form-container">
+      <div class="form-group">
+        <label for="title">Email Title:</label>
+        <input id="title" class="input" formControlName="title" placeholder="Enter email subject" required>
+      </div>
+      <button type="submit" [disabled]="phishingForm.invalid" class="submit-button">
+        <i class="material-icons">security</i> Check for Phishing
+      </button>
+    </form>
+  </ng-container>
+  <ng-template #notGmail>
+    <div class="not-gmail">
+      <h3>Not on Gmail</h3>
+      <p>Please open Gmail to use this extension</p>
+      <button id="goToGmail">Go to Gmail</button>
+    </div>
+  </ng-template>
+</div>
+<div class="popup-container result-popup" *ngIf="result.score != 0 && result.isPhishing != ''">
+  <div class="result-header">
+    <h3>Phishing Check Result</h3>
+    <div class="result-icon" [ngClass]="{'safe': result.isPhishing == 'Safe', 'warning': result.isPhishing == 'Phishing'}">
+      <i class="material-icons">{{ result.isPhishing == 'Safe' ? 'security' : 'warning' }}</i>
+    </div>
+  </div>
+  
+  <div class="result-content" [ngClass]="{'safe-content': result.isPhishing == 'Safe', 'warning-content': result.isPhishing == 'Phishing'}">
+    <p *ngIf="result.isPhishing == 'Safe'"><strong>Safe:</strong> This email appears to be legitimate.</p>
+    <p *ngIf="result.isPhishing == 'Phishing'"><strong>Warning:</strong> This email shows signs of being a phishing attempt.</p>
+    <p>Confidence score: {{ result.score | number:'1.2-2' }}</p>
+    
+    <p class="recommendation" *ngIf="result.isPhishing == 'Safe'">
+      While this email appears safe, always remain cautious with links and attachments.
+    </p>
+    <p class="recommendation" *ngIf="result.isPhishing == 'Phishing'">
+      Recommendation: Do not click any links or download attachments from this email.
+    </p>
+  </div>
+  
+  <button id="resetButton" (click)="reset()" class="reset-button">
+    <i class="material-icons">refresh</i> Check Another Email
+  </button>
+</div>
